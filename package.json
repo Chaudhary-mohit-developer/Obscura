@@ -1,0 +1,44 @@
+{
+  "name": "obscura",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Obscura: Zero-Knowledge Age & Eligibility Gate on Midnight Blockchain. Visible proof. Invisible data.",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "build:contract": "npm run --prefix contract build",
+    "compact:compile": "node scripts/compile-compact.js",
+    "compile:compact": "node scripts/compile-compact.js",
+    "compact": "node scripts/compile-compact.js",
+    "build:frontend": "npm run --prefix frontend build",
+    "dev": "npm run --prefix frontend dev",
+    "deploy:local": "ts-node scripts/deploy-local.ts",
+    "verify:cli": "ts-node scripts/verify-proof-cli.ts",
+    "build": "npm run build:contract && npm run build:frontend"
+  },
+  "workspaces": [
+    "contract",
+    "frontend"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "happy-dom": "^14.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.6.0"
+  },
+  "keywords": [
+    "midnight",
+    "compact",
+    "zero-knowledge",
+    "zk-proof",
+    "privacy",
+    "age-gate",
+    "eligibility-gate",
+    "camera-obscura",
+    "dapp"
+  ],
+  "author": "Mohit Chaudhary (Chaudhary-mohit-developer)",
+  "license": "MIT"
+}

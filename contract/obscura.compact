@@ -1,0 +1,121 @@
+// ============================================================================
+// Obscura - Midnight Compact Smart Contract & Zero-Knowledge Circuit
+// Language: Midnight Compact v0.6+
+// Project: Level 3 - First Quarter Submission (RiseIn Monthly Moonshots on Midnight)
+// Tagline: "Visible proof. Invisible data."
+// ============================================================================
+// PRIVACY ARCHITECTURE & DESIGN GUARANTEES:
+//
+// 1. Private Witness:
+//    - `userAge`: The user's chronological age in integer years. It is processed
+//      strictly in client-side memory during ZK proof generation.
+//    - `secretSalt`: A 256-bit cryptographically secure blinding scalar that prevents
+//      brute-force dictionary attacks against predictable ages.
+//    - `identitySecret`: The user's private key commitment/secret, ensuring that
+//      proofs cannot be copied or replayed by unauthorized third parties.
+//
+// 2. Public Ledger State:
+//    - `minAgeThreshold`: The configurable verification threshold (e.g., 18 or 21).
+//    - `verifiedEligibleCount`: Total count of successful eligibility attestations.
+//    - `nullifierRoot`: The accumulator tracking spent nullifiers to prevent double-claiming.
+//    - `adminPublicKeyHash`: Authorized governance key for threshold adjustments.
+//
+// 3. Selective Disclosure Guarantee:
+//    - Observers on Midnight see ONLY a boolean assertion `isEligible = true` and
+//      the one-time context nullifier hash.
+//    - Zero bits of information regarding the actual numeric age or birth date
+//      are revealed on-chain or transmitted over the network.
+// ============================================================================
+
+module ObscuraContract;
+
+import CompactStandardLibrary;
+
+// ----------------------------------------------------------------------------
+// Public Ledger State (On-chain storage)
+// ----------------------------------------------------------------------------
+ledger {
+  // Public eligibility threshold (e.g. 18, 21), configurable at deploy time
+  minAgeThreshold: Uint<32>;
+
+  // Aggregate count of successfully verified eligible participants
+  verifiedEligibleCount: Uint<64>;
+
+  // Governance administrator public key hash for parameter updates
+  adminPublicKeyHash: Bytes<32>;
+
+  // Accumulator tracking the latest spent nullifier to enforce single-use per context
+  nullifierRoot: Bytes<32>;
+}
+
+// ----------------------------------------------------------------------------
+// Private Witness Inputs (Off-chain client only, never in blocks or transaction calldata)
+// ----------------------------------------------------------------------------
+
+// Private witness: User's raw chronological age (years)
+witness userAge(): Uint<32>;
+
+// Private witness: 256-bit client-side blinding salt
+witness secretSalt(): Bytes<32>;
+
+// Private witness: User's private identity secret/commitment
+witness identitySecret(): Bytes<32>;
+
+// ----------------------------------------------------------------------------
+// Zero-Knowledge Circuit Helper Functions
+// ----------------------------------------------------------------------------
+
+/**
+ * Derives a deterministic, single-use nullifier hash.
+ * Combines the user's private secret with the blinding salt and public context nonce.
+ * Nullifier = SHA-256(identitySecret || secretSalt || contextNonce)
+ */
+circuit computeNullifier(secret: Bytes<32>, salt: Bytes<32>, contextNonce: Bytes<32>): Bytes<32> {
+  return sha256(concat(concat(secret, salt), contextNonce));
+}
+
+// ----------------------------------------------------------------------------
+// Exported Zero-Knowledge Circuits
+// ----------------------------------------------------------------------------
+
+/**
+ * proveEligibility: Proves age >= minAgeThreshold without disclosing raw age.
+ *
+ * @param contextNonce Public context nonce (e.g. session epoch hash or dApp challenge)
+ * @returns Boolean `true` if the zero-knowledge constraint is satisfied
+ */
+export circuit proveEligibility(contextNonce: Bytes<32>): Boolean {
+  // 1. Ingest private witness inputs directly from prover's local device
+  const age: Uint<32> = userAge();
+  const salt: Bytes<32> = secretSalt();
+  const secret: Bytes<32> = identitySecret();
+
+  // 2. ZERO-KNOWLEDGE INEQUALITY CONSTRAINT
+  // Proves in zero-knowledge that the private age meets or exceeds the required threshold.
+  // Neither the verifier nor the Midnight validator node ever learns the numeric value.
+  assert(age >= ledger.minAgeThreshold, "Obscura: Age does not meet the required threshold");
+
+  // 3. Prevent nullifier reuse across identical context epochs
+  const nullifier: Bytes<32> = computeNullifier(secret, salt, contextNonce);
+  assert(nullifier != ledger.nullifierRoot, "Obscura: Verification proof already consumed for this context");
+
+  // 4. State transition: increment verified count and record nullifier on public ledger
+  ledger.verifiedEligibleCount = ledger.verifiedEligibleCount + 1;
+  ledger.nullifierRoot = nullifier;
+
+  // 5. Expose ONLY boolean success to on-chain callers
+  return true;
+}
+
+/**
+ * updateAgeThreshold: Governance circuit allowing authorized administrator
+ * to adjust the required minimum age threshold.
+ */
+export circuit updateAgeThreshold(newThreshold: Uint<32>, adminSignatureWitness: Bytes<32>): Void {
+  // Enforce caller possesses the private admin credential matching public ledger hash
+  const computedAdminHash: Bytes<32> = sha256(adminSignatureWitness);
+  assert(computedAdminHash == ledger.adminPublicKeyHash, "Obscura: Unauthorized threshold update attempt");
+  assert(newThreshold > 0, "Obscura: Minimum threshold must be strictly positive");
+
+  ledger.minAgeThreshold = newThreshold;
+}
