@@ -221,17 +221,11 @@ npm run test:coverage
 
 ## 7. Screenshots
 
-### 1. Landing Hero & Light-First Aurora Glassmorphism
-[SCREENSHOT: Obscura Landing Hero with tagline "Visible proof. Invisible data.", live metrics, and Lace wallet connect]
+### 1. CI/CD Automated Workflow (Passing)
+![Obscura CI/CD Pipeline Passing](image.png)
 
-### 2. Interactive Aperture Iris (Proving State)
-[SCREENSHOT: Dynamic Camera Obscura aperture iris contracting and rotating during zero-knowledge proof synthesis]
-
-### 3. Verification Success & Selective Disclosure Result
-[SCREENSHOT: Aperture iris opened revealing verified boolean eligibility with proof digest and zero data leakage]
-
-### 4. How Obscura Stays Private Explainer Panel
-[SCREENSHOT: Side-by-side interactive comparison of Invisible Data vs Visible Proof on Midnight ledger]
+### 2. Comprehensive Test Suite Execution (17 / 17 Tests Passing)
+![Obscura Test Suite Passing](image-1.png)
 
 ---
 
