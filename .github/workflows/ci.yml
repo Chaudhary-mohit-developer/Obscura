@@ -10,6 +10,9 @@ jobs:
   build-and-test:
     name: Build, Circuit Verification & Test Suite
     runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https://funny-sable-942982.netlify.app/
 
     steps:
       - name: Check out repository
