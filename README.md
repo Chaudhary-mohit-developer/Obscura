@@ -3,6 +3,7 @@
 > **"Visible proof. Invisible data."**
 
 [![Obscura CI Pipeline](https://github.com/Chaudhary-mohit-developer/Obscura/actions/workflows/ci.yml/badge.svg)](https://github.com/Chaudhary-mohit-developer/Obscura/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-funny--sable--942982.netlify.app-8b5cf6.svg)](https://funny-sable-942982.netlify.app/)
 [![Demo Video](https://img.shields.io/badge/Demo_Video-Watch_Walkthrough-ec4899?logo=googlephotos)](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)
 [![Tests Passing](https://img.shields.io/badge/Tests-17%2F17_Passing-10b981.svg)](tests/)
 [![Product Proposal](https://img.shields.io/badge/Proposal-PROPOSAL.md_Available-8b5cf6.svg)](PROPOSAL.md)
@@ -11,6 +12,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![RiseIn Track](https://img.shields.io/badge/RiseIn-Level_3_Submission-rose.svg)](https://www.risein.com)
 
+> 🚀 **Live dApp Website**: **[https://funny-sable-942982.netlify.app/](https://funny-sable-942982.netlify.app/)**  
 > 📹 **Live Demonstration Video**: **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)**  
 > *Watch the complete walkthrough demonstrating Midnight Lace wallet connection, client-side witness blinding, in-browser ZK-SNARK proof generation, and verification on the Midnight ledger.*
 
@@ -27,6 +29,7 @@ Submitted for **Level 3 - First Quarter Submission** of the RiseIn *"New Moon to
 | Parameter | Value |
 |---|---|
 | **Contract Name** | `ObscuraContract` |
+| **Live Web Application** | **[https://funny-sable-942982.netlify.app/](https://funny-sable-942982.netlify.app/)** |
 | **Deployed Contract Address** | `0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a` |
 | **Midnight Explorer Link** | **[https://preprod.midnightexplorer.com/contracts/0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a](https://preprod.midnightexplorer.com/contracts/0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a)** |
 | **Demo Video Walkthrough** | **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)** |
@@ -236,8 +239,8 @@ npm run test:coverage
 
 ## 8. Live Demo & Video Links
 
+- **Live Web Application**: **[https://funny-sable-942982.netlify.app/](https://funny-sable-942982.netlify.app/)**
 - **Walkthrough Demo Video**: **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)**
-- **Live Web Application**: [https://obscura-midnight.vercel.app](https://github.com/Chaudhary-mohit-developer/Obscura) *(Placeholder for deployment)*
 
 ---
 
