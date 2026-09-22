@@ -7,7 +7,7 @@
 [![Demo Video](https://img.shields.io/badge/Demo_Video-Watch_Walkthrough-ec4899?logo=googlephotos)](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)
 [![Tests Passing](https://img.shields.io/badge/Tests-17%2F17_Passing-10b981.svg)](tests/)
 [![Product Proposal](https://img.shields.io/badge/Proposal-PROPOSAL.md_Available-8b5cf6.svg)](PROPOSAL.md)
-[![Midnight Network](https://img.shields.io/badge/Blockchain-Midnight_Preprod-06b6d4.svg)](https://preprod.midnight.network)
+[![Midnight Network](https://img.shields.io/badge/Blockchain-Midnight_Testnet--02-7c3aed.svg)](https://midnight.network)
 [![Smart Contract](https://img.shields.io/badge/Language-Compact_v0.6+-70FFBE.svg)](contract/obscura.compact)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![RiseIn Track](https://img.shields.io/badge/RiseIn-Level_3_Submission-rose.svg)](https://www.risein.com)
@@ -24,19 +24,17 @@ Submitted for **Level 3 - First Quarter Submission** of the RiseIn *"New Moon to
 
 ---
 
-## 📜 Deployed Smart Contract (Midnight Preprod)
+## 📜 Smart Contract Architecture & Deployment
 
 | Parameter | Value |
 |---|---|
 | **Contract Name** | `ObscuraContract` |
 | **Live Web Application** | **[https://funny-sable-942982.netlify.app/](https://funny-sable-942982.netlify.app/)** |
-| **Deployed Contract Address** | `0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a` |
-| **Midnight Explorer Link** | **[https://preprod.midnightexplorer.com/contracts/0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a](https://preprod.midnightexplorer.com/contracts/0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a)** |
 | **Demo Video Walkthrough** | **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)** |
-| **Target Network** | Midnight Preprod Testnet |
+| **Target Network** | Midnight Testnet-02 / Local Devnet |
 | **Smart Contract Language** | **Midnight Compact (`v0.6+`)** |
 | **Circuit Definition** | `contract/obscura.compact` |
-| **Deployment Manifest** | `deployed_contract.json` |
+| **Local Deployment Script** | `npm run deploy:local` (generates `deployed_contract.json`) |
 | **ZK Proving Engine** | Midnight Halo2 / Compact Prover |
 | **Test Coverage** | **17 / 17 Tests Passing** across 5 test suites |
 | **Product Proposal** | **[PROPOSAL.md](PROPOSAL.md)** |

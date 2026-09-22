@@ -93,7 +93,7 @@ Obscura is designed on a modular, multi-quarter roadmap aligning directly with t
 - [x] Midnight Lace wallet connection and devnet simulation fallback.
 - [x] 17 automated tests (circuit correctness, edge cases, replay prevention, integration).
 - [x] Automated CI/CD pipeline with GitHub Actions running `compact compile` and full test suites.
-- [x] Published Midnight Preprod contract deployment artifacts and explorer reference.
+- [x] Local devnet deployment simulation and automated verification artifacts (`deployed_contract.json`).
 
 ### Level 4 (Waxing Gibbous)
 - **W3C Verifiable Credentials (VC) Ingestion:** Allow users to import cryptographically signed digital birthdate attestations from government or university identity issuers directly into their local Midnight wallet.
