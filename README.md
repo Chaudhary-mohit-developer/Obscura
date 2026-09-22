@@ -3,12 +3,16 @@
 > **"Visible proof. Invisible data."**
 
 [![Obscura CI Pipeline](https://github.com/Chaudhary-mohit-developer/Obscura/actions/workflows/ci.yml/badge.svg)](https://github.com/Chaudhary-mohit-developer/Obscura/actions/workflows/ci.yml)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-Watch_Walkthrough-ec4899?logo=googlephotos)](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)
 [![Tests Passing](https://img.shields.io/badge/Tests-17%2F17_Passing-10b981.svg)](tests/)
 [![Product Proposal](https://img.shields.io/badge/Proposal-PROPOSAL.md_Available-8b5cf6.svg)](PROPOSAL.md)
 [![Midnight Network](https://img.shields.io/badge/Blockchain-Midnight_Preprod-06b6d4.svg)](https://preprod.midnight.network)
 [![Smart Contract](https://img.shields.io/badge/Language-Compact_v0.6+-70FFBE.svg)](contract/obscura.compact)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![RiseIn Track](https://img.shields.io/badge/RiseIn-Level_3_Submission-rose.svg)](https://www.risein.com)
+
+> 📹 **Live Demonstration Video**: **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)**  
+> *Watch the complete walkthrough demonstrating Midnight Lace wallet connection, client-side witness blinding, in-browser ZK-SNARK proof generation, and verification on the Midnight ledger.*
 
 **Obscura** is a next-generation, zero-knowledge Age and Eligibility Gate built natively on the **Midnight blockchain** using the **Compact smart contract language**. It enables users to cryptographically prove that their age (or any private numeric attribute) satisfies a required regulatory threshold (e.g., `age >= 18` or `age >= 21`) **without ever revealing their actual age, date of birth, or any identifiable information** on-chain or to any third-party observer.
 
@@ -25,6 +29,7 @@ Submitted for **Level 3 - First Quarter Submission** of the RiseIn *"New Moon to
 | **Contract Name** | `ObscuraContract` |
 | **Deployed Contract Address** | `0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a` |
 | **Midnight Explorer Link** | **[https://preprod.midnightexplorer.com/contracts/0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a](https://preprod.midnightexplorer.com/contracts/0x4e8a912c41df80b2a75d9e18c642b31f0a887e2954a329d71c82e04312c1b99a)** |
+| **Demo Video Walkthrough** | **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)** |
 | **Target Network** | Midnight Preprod Testnet |
 | **Smart Contract Language** | **Midnight Compact (`v0.6+`)** |
 | **Circuit Definition** | `contract/obscura.compact` |
@@ -231,8 +236,8 @@ npm run test:coverage
 
 ## 8. Live Demo & Video Links
 
+- **Walkthrough Demo Video**: **[https://photos.app.goo.gl/P3L6aFaRtsEu5seG8](https://photos.app.goo.gl/P3L6aFaRtsEu5seG8)**
 - **Live Web Application**: [https://obscura-midnight.vercel.app](https://github.com/Chaudhary-mohit-developer/Obscura) *(Placeholder for deployment)*
-- **Walkthrough Demo Video**: [https://youtu.be/obscura-demo](https://github.com/Chaudhary-mohit-developer/Obscura) *(Placeholder for recording)*
 
 ---
 
